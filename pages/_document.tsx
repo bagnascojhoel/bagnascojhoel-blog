@@ -1,26 +1,26 @@
-import * as React from 'react'
-import Document, { Head, Html, Main, NextScript } from 'next/document'
+import * as React from "react";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import { IconContext } from '@react-icons/all-files'
+import { IconContext } from "@react-icons/all-files";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <Html lang='en'>
+      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+        <Html lang="en">
           <Head>
-            <link rel='shortcut icon' href='/favicon.ico' />
+            <link rel="shortcut icon" href="/favicon.ico" />
             <link
-              rel='icon'
-              type='image/png'
-              sizes='32x32'
-              href='favicon.png'
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="favicon.png"
             />
 
-            <link rel='manifest' href='/manifest.json' />
+            <link rel="manifest" href="/manifest.json" />
 
             <link
-              href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&display=swap"
+              href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;500;600;700&display=swap"
               rel="stylesheet"
             />
           </Head>
@@ -63,7 +63,7 @@ export default class MyDocument extends Document {
     localStorage.setItem(storageKey, JSON.stringify(isDarkMode))
   }
 })();
-`
+`,
               }}
             />
             <Main />
@@ -72,6 +72,6 @@ export default class MyDocument extends Document {
           </body>
         </Html>
       </IconContext.Provider>
-    )
+    );
   }
 }

@@ -4,12 +4,69 @@
   }
 }
 
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: hsl(var(--color-foreground));
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+.navLink:hover {
+  background-color: hsl(var(--color-secondary));
+  border-color: hsl(var(--color-primary));
+  box-shadow: var(--shadow-warm);
+  color: hsl(var(--color-primary));
+}
+.navLink:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+}
+.navLink:active {
+  transform: translateY(1px);
+}
+
+.goBackButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: hsl(var(--color-foreground));
+}
+.goBackButton:hover {
+  transform: translateX(-4px);
+}
+.goBackButton:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+}
+.goBackButton:active {
+  transform: translateX(-6px);
+}
+
 .container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: hsl(var(--color-background));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,10 +74,9 @@
 
   font-size: 16px;
   line-height: 1.5;
-  color: rgb(55, 53, 47);
-  caret-color: rgb(55, 53, 47);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
-    'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: hsl(var(--color-foreground));
+  caret-color: hsl(var(--color-foreground));
+  font-family: var(--font-sans);
 }
 
 .icon.loading {
@@ -31,14 +87,14 @@
   display: block;
   width: 24px;
   height: 24px;
-  color: rgba(55, 53, 47, 0.4);
+  color: hsl(var(--color-muted-foreground));
 }
 
 .iconText {
   display: inline-block;
   margin-left: 1ch;
   font-size: 1rem;
-  font-family: var(--mono-font);
+  font-family: var(--font-mono);
 }
 
 .main {
@@ -55,72 +111,109 @@
 
 .footer {
   width: 100%;
-  max-width: 1100px;
-  margin: auto auto 0;
-  padding: 8px;
+  max-width: var(--max-width);
+  margin-top: calc(var(--spacing-unit) * 8);
+  padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
+}
 
+.footerContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contactTitle {
+  font-size: var(--text-3xl);
+  font-family: var(--font-mono);
+  color: hsl(var(--color-foreground));
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  font-weight: 600;
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.contactSubtitle {
+  font-size: var(--text-base);
+  color: hsl(var(--color-muted-foreground));
+  margin-bottom: calc(var(--spacing-unit) * 4);
+  line-height: 1.6;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 6);
+}
+
+.contactCard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: calc(var(--spacing-unit) * 2);
+  padding: calc(var(--spacing-unit) * 3);
+  border: 1px solid hsl(var(--color-border));
+  border-radius: 12px;
+  background-color: hsl(var(--color-card));
+  text-decoration: none;
+  transition: var(--transition);
+  color: hsl(var(--color-foreground));
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  min-height: 44px;
+}
+
+.contactCard:hover {
+  border-color: hsl(var(--color-primary));
+  box-shadow: var(--shadow-warm);
+  transform: translateY(-2px);
+}
+
+.contactCard:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+}
+
+.contactCardIcon {
+  color: hsl(var(--color-primary));
+  flex-shrink: 0;
+}
+
+.footerDivider {
+  width: 100%;
+  max-width: 100%;
+  margin-top: calc(var(--spacing-unit) * 12);
+  margin-bottom: calc(var(--spacing-unit) * 4);
+  border: none;
+  border-top: 1px solid hsl(var(--color-border));
+}
+
+.footerText {
+  color: hsl(var(--color-primary));
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.copyright {
-  font-size: 80%;
-  padding: 0.5em;
+.footerIcon {
+  color: hsl(var(--color-primary));
+  display: inline-block;
 }
 
-.settings,
-.social {
-  user-select: none;
-}
-
-.settings a,
-.social a {
-  cursor: pointer;
-  font-size: 2em;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25em;
-  margin-right: 1vw;
-  transition: color 250ms ease-out;
-}
-
-.settings a:last-of-type,
-.social a:last-of-type {
-  margin-right: 0;
-}
-
-.settings a:hover,
-.social a:hover {
-  transition: color 10ms ease-in;
-  color: #F97316;
+@media only screen and (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .comments {
   width: 100%;
   margin-top: 2em;
-  border-top: 1px solid var(--fg-color-0);
-}
-
-@media only screen and (max-width: 566px) {
-  .footer {
-    flex-direction: column;
-  }
-
-  .footer > div {
-    margin-top: 1em;
-  }
-
-  .footer .settings {
-    order: 1;
-  }
-  .footer .social {
-    order: 2;
-  }
-  .footer .copyright {
-    order: 3;
-  }
+  border-top: 1px solid hsl(var(--color-border));
 }
 
 .pageActions {
@@ -137,8 +230,8 @@
   padding: 12px;
   margin-right: 1vw;
   border-radius: 50%;
-  background: transparent;
-  transition: all 250ms ease-out;
+  background: var(--transition);
+  color: hsl(var(--color-foreground));
 }
 
 .pageActions a:last-of-type {
@@ -147,6 +240,7 @@
 
 .pageActions a:hover {
   transition: all 50ms ease-out;
+  background: hsl(var(--color-muted));
 }
 
 .likeTweet:hover {

@@ -2,15 +2,13 @@
  * This file contains site-specifc style overrides for Notion elements from
  * react-notion-x.
  *
- * react-notion-x's goal is to match styling as close as possible to Notion,
- * whereas our goal with this site is to adjust Notion's styling in a few key
- * places to add some flare.
+ * Adapted to match v3 design system with warm orange theme.
  */
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
   background-color: transparent;
-  color: var(--primary);
+  color: hsl(var(--color-foreground));
 }
 
 .notion-frame {
@@ -20,11 +18,11 @@
 .notion-page {
   padding-bottom: calc(max(5vh, 32px)) !important;
   line-height: 1.65;
-  backdrop-filter: blur(2px);
 }
 
 .notion-page-title-text {
-  color: var(--primary-variant);
+  color: hsl(var(--color-primary));
+  font-family: var(--font-mono);
 }
 
 .index-page {
@@ -33,12 +31,12 @@
 
 .notion-text {
   padding: 0.5em 2px;
-  color: var(--primary-variant)
+  color: hsl(var(--color-foreground));
 }
 
 .notion-asset-caption {
   text-align: center;
-  color: var(--primary-variant);
+  color: hsl(var(--color-muted-foreground));
 }
 
 .notion-asset-wrapper {
@@ -85,8 +83,16 @@
 }
 
 .notion-collection-card {
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   box-shadow: none;
+  border: 1px solid hsl(var(--color-border));
+  background-color: hsl(var(--color-card));
+  transition: var(--transition);
+}
+
+.notion-collection-card:hover {
+  border-color: hsl(var(--color-primary));
+  box-shadow: var(--shadow-warm);
 }
 
 .notion-collection-card-cover img {
@@ -117,12 +123,12 @@
 }
 
 .notion-property-checkbox-unchecked {
-  border-color: var(--primary);
+  border-color: hsl(var(--color-primary));
 }
 
 .notion-property-checkbox-checked {
-  border-color: var(--primary);
-  background-color: var(--primary);
+  border-color: hsl(var(--color-primary));
+  background-color: hsl(var(--color-primary));
 }
 
 /* only target safari */
@@ -140,8 +146,9 @@
   line-height: 1.5;
   font-style: italic;
   font-size: 1.2em;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid hsl(var(--color-primary));
   margin: 20px 0;
+  color: hsl(var(--color-muted-foreground));
 }
 
 .notion-h1,
@@ -152,7 +159,9 @@
 
 .notion-callout {
   margin: 0.75em 0;
-  background-color: rgba(251, 146, 60, 0.05) !important;
+  background-color: hsl(var(--color-primary) / 0.05) !important;
+  border: 1px solid hsl(var(--color-border));
+  border-radius: var(--radius-md);
 }
 
 .notion-hr {
@@ -180,7 +189,21 @@
 }
 
 .notion-header .button {
-  padding: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.notion-header .button:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+}
+
+.notion-header .button:active {
+  transform: translateY(1px);
 }
 
 .notion .notion-page-icon-cover {
@@ -191,11 +214,13 @@
 .notion-title {
   display: block;
   text-align: center;
-  font-family: var(--mono-font);
+  font-family: var(--font-mono);
+  color: hsl(var(--color-foreground));
 }
 
 .notion-h-title {
-  font-family: var(--mono-font);
+  font-family: var(--font-mono);
+  color: hsl(var(--color-foreground));
 }
 
 .notion-collection-row {
@@ -228,7 +253,7 @@
   }
   
 .notion-page-cover-wrapper img {
-  border: 1px solid var(--primary-variant) !important;
+  border: 1px solid hsl(var(--color-border)) !important;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -265,18 +290,20 @@
 
 .notion-link {
   position: relative;
-  transition: 500ms;
+  transition: var(--transition);
   border-bottom-width: 0.1rem;
-  border-color: var(--primary);
+  border-color: hsl(var(--color-primary));
   opacity: 1;
+  color: hsl(var(--color-primary));
 }
 
 .notion-link:hover {
-  border-color: var(--primary);
+  border-color: hsl(var(--color-primary-glow));
+  color: hsl(var(--color-primary-glow));
 }
 
 .notion-hash-link {
-  fill: var(--primary-variant);
+  fill: hsl(var(--color-primary));
 }
 
 .notion-red_background,
@@ -391,14 +418,12 @@
 }
 
 .notion-header {
-  background: hsla(0, 0%, 100%, 0.8);
-  backdrop-filter: saturate(180%) blur(16px);
+  background: transparent;
 }
 
 .dark-mode .notion-header {
   background: transparent;
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
-  backdrop-filter: saturate(180%) blur(8px);
 }
 
 /* Workaround for Firefox not supporting backdrop-filter yet */

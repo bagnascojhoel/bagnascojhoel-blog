@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Gallery - v1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-theme="light">
+    <!-- Floating Controls -->
+    <div class="floating-controls">
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 3V1M10 19V17M17 10H19M1 10H3M15.657 4.343L17.071 2.929M2.929 17.071L4.343 15.657M15.657 15.657L17.071 17.071M2.929 2.929L4.343 4.343M14 10C14 12.209 12.209 14 10 14C7.791 14 6 12.209 6 10C6 7.791 7.791 6 10 6C12.209 6 14 7.791 14 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="container">
+      <!-- Header -->
+      <header class="blog-header">
+        <h1 class="blog-header__title">Blog</h1>
+        <p class="blog-header__subtitle">
+          Thoughts on software development, architecture, and engineering practices
+        </p>
+      </header>
+
+      <!-- Blog Post Gallery -->
+      <section class="blog-gallery">
+        <!-- Post Card 1 -->
+        <article class="post-card">
+          <a href="#" class="post-card__link">
+            <div class="post-card__image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop"
+                alt="Code on laptop screen"
+                class="post-card__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-card__content">
+              <h2 class="post-card__title">Compiling a Spring Boot Project to a Native Image</h2>
+              <p class="post-card__meta">
+                <time datetime="2024-01-15">Jan 15, 2024</time>
+                <span class="post-card__dot">•</span>
+                <span>5 min read</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 2 -->
+        <article class="post-card">
+          <a href="#" class="post-card__link">
+            <div class="post-card__image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=450&fit=crop"
+                alt="Developer working"
+                class="post-card__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-card__content">
+              <h2 class="post-card__title">Building Scalable Microservices with Spring Cloud</h2>
+              <p class="post-card__meta">
+                <time datetime="2024-01-10">Jan 10, 2024</time>
+                <span class="post-card__dot">•</span>
+                <span>8 min read</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 3 -->
+        <article class="post-card">
+          <a href="#" class="post-card__link">
+            <div class="post-card__image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=450&fit=crop"
+                alt="Architecture diagram"
+                class="post-card__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-card__content">
+              <h2 class="post-card__title">Domain-Driven Design in Practice: Lessons from Real Projects</h2>
+              <p class="post-card__meta">
+                <time datetime="2024-01-05">Jan 5, 2024</time>
+                <span class="post-card__dot">•</span>
+                <span>12 min read</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 4 -->
+        <article class="post-card">
+          <a href="#" class="post-card__link">
+            <div class="post-card__image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&h=450&fit=crop"
+                alt="Code editor"
+                class="post-card__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-card__content">
+              <h2 class="post-card__title">React Server Components: A Deep Dive</h2>
+              <p class="post-card__meta">
+                <time datetime="2023-12-28">Dec 28, 2023</time>
+                <span class="post-card__dot">•</span>
+                <span>10 min read</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 5 -->
+        <article class="post-card">
+          <a href="#" class="post-card__link">
+            <div class="post-card__image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=450&fit=crop"
+                alt="Tech workspace"
+                class="post-card__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-card__content">
+              <h2 class="post-card__title">TypeScript Best Practices for Large-Scale Applications</h2>
+              <p class="post-card__meta">
+                <time datetime="2023-12-20">Dec 20, 2023</time>
+                <span class="post-card__dot">•</span>
+                <span>7 min read</span>
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Post Card 6 -->
+        <article class="post-card">
+          <a href="#" class="post-card__link">
+            <div class="post-card__image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&h=450&fit=crop"
+                alt="Programming"
+                class="post-card__image"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-card__content">
+              <h2 class="post-card__title">Event-Driven Architecture: When and Why to Use It</h2>
+              <p class="post-card__meta">
+                <time datetime="2023-12-15">Dec 15, 2023</time>
+                <span class="post-card__dot">•</span>
+                <span>9 min read</span>
+              </p>
+            </div>
+          </a>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
