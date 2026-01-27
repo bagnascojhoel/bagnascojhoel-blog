@@ -23,19 +23,19 @@
    - CSS automatically updates via [data-theme="dark"] selectors
    - Initializes on page load from saved preference or defaults to light
 */
-const themeToggle = document.querySelector('.theme-toggle');
+const themeToggle = document.querySelector(".theme-toggle");
 const body = document.body;
 
 // Load saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
+const currentTheme = localStorage.getItem("theme") || "light";
 body.dataset.theme = currentTheme;
 
 if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
+  themeToggle.addEventListener("click", () => {
     // Toggle between dark and light
-    const newTheme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+    const newTheme = body.dataset.theme === "dark" ? "light" : "dark";
     body.dataset.theme = newTheme;
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem("theme", newTheme);
   });
 }
 
@@ -47,10 +47,10 @@ if (themeToggle) {
    - Update content dynamically
    - Persist language preference
 */
-const languageSelect = document.querySelector('.language-select');
+const languageSelect = document.querySelector(".language-select");
 if (languageSelect) {
-  languageSelect.addEventListener('change', e => {
-    console.log('Language changed to:', e.target.value);
+  languageSelect.addEventListener("change", (e) => {
+    console.log("Language changed to:", e.target.value);
     // TODO: Implement content translation
     // Ideas: Fetch JSON translations, update DOM, save to localStorage
   });
@@ -63,16 +63,16 @@ if (languageSelect) {
    - Scrolls with offset (80px) for fixed headers
    - Uses native smooth scroll behavior
 */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const target = document.querySelector(this.getAttribute("href"));
     if (target) {
       const offset = 80; // Account for fixed header/nav
       const targetPosition = target.offsetTop - offset;
       window.scrollTo({
         top: targetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   });
@@ -94,29 +94,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    - .work-item__description: max-height/opacity transition when expanded
    - .work-item__tags: display flex when expanded
 */
-const workItemCards = document.querySelectorAll('.work-item');
+const workItemCards = document.querySelectorAll(".work-item");
 
-workItemCards.forEach(card => {
-  card.addEventListener('click', function (e) {
+workItemCards.forEach((card) => {
+  card.addEventListener("click", function (e) {
     // If card is expanded and user clicks the link, allow navigation
-    if (e.target.closest('.work-item__link') && this.classList.contains('is-expanded')) {
+    if (
+      e.target.closest(".work-item__link") &&
+      this.classList.contains("is-expanded")
+    ) {
       return; // Let the link work normally
     }
 
     // If clicking link while collapsed, prevent navigation and expand instead
-    if (e.target.closest('.work-item__link')) {
+    if (e.target.closest(".work-item__link")) {
       e.preventDefault();
     }
 
     // Toggle the expanded state (.is-expanded class)
-    this.classList.toggle('is-expanded');
+    this.classList.toggle("is-expanded");
   });
 
   // Additional handler: Prevent link navigation when card is collapsed
-  const workItemLink = card.querySelector('.work-item__link');
+  const workItemLink = card.querySelector(".work-item__link");
   if (workItemLink) {
-    workItemLink.addEventListener('click', function (e) {
-      if (!card.classList.contains('is-expanded')) {
+    workItemLink.addEventListener("click", function (e) {
+      if (!card.classList.contains("is-expanded")) {
         e.preventDefault(); // Block navigation
       }
     });

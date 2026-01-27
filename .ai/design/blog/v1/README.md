@@ -2,23 +2,26 @@
 
 ## Overview
 
-Responsive blog post gallery with mobile-first design. Displays posts as a **vertical list on mobile** and switches to a **card grid on tablet/desktop**.
+Responsive blog post gallery with mobile-first design. **Image-free design** focusing on content, typography, and clean visual hierarchy.
+
+**Status:** ✅ Applied to project (`styles/notion.css`)
 
 ## Design Features
 
 ### Mobile (<768px)
 
-- **Layout**: Vertical list
-- **Card Structure**: Horizontal layout
-  - Image: Left side (40% width), min 120px height
-  - Content: Right side (60% width)
-  - Title: 3-line clamp, base font size
+- **Layout**: Vertical list (single column)
+- **Card Structure**: Content-only with gradient top border
+  - Min-height: 140px
+  - Padding: 2.5 spacing units
+  - Title: Full display, base font size
   - Meta: Date + read time, extra small font
+  - Tags: Wrapped with hover animations
 
 ### Tablet (768px - 1023px)
 
 - **Layout**: 2-column grid
-- **Card Structure**: Vertical layout
+- **Card Structure**: Same as mobile with larger spacing
   - Image: Top (16:9 aspect ratio)
   - Content: Below
   - Title: 2-line clamp, large font size
@@ -100,11 +103,11 @@ Responsive blog post gallery with mobile-first design. Displays posts as a **ver
 
 ## Responsive Behavior
 
-| Breakpoint | Columns | Image Position | Image Size | Title Lines |
-| ---------- | ------- | -------------- | ---------- | ----------- |
-| <768px     | 1       | Left (40%)     | 120px min  | 3           |
-| 768-1023px | 2       | Top            | 16:9       | 2           |
-| 1024px+    | 3       | Top            | 16:9       | 2           |
+| Breakpoint | Columns | Layout | Min Height | Title Size |
+| ---------- | ------- | ------ | ---------- | ---------- |
+| <768px     | 1       | Vertical list | 140px     | Base      |
+| 768-1023px | 2       | Grid         | 180px     | Large     |
+| 1024px+    | 3       | Grid         | 180px     | Extra Large |
 
 ## Browser Support
 

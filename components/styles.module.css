@@ -291,3 +291,43 @@
 .hidden {
   visibility: hidden;
 }
+
+.floatingControls {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 300;
+}
+
+.themeToggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--color-card));
+  border: 1px solid hsl(var(--color-border));
+  cursor: pointer;
+  color: hsl(var(--color-foreground));
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 100;
+}
+.themeToggle:hover {
+  border-color: hsl(var(--color-primary));
+  box-shadow: var(--shadow-warm);
+}
+.themeToggle:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+}
+.themeToggle:active {
+  transform: translateY(1px);
+}
+
+.themeIcon {
+  width: 20px;
+  height: 20px;
+}

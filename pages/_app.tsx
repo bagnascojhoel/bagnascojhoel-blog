@@ -29,6 +29,7 @@ import {
 } from "@/lib/config";
 import { BackgroundShapes } from "@/components/BackgroundShapes";
 import { Loading } from "@/components/Loading";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 if (!isServer) {
   bootstrap();
@@ -80,6 +81,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <BackgroundShapes />
+      <ThemeToggle />
       {isLoading && <Loading />}
       <Component {...pageProps} />
     </>

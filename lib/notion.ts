@@ -28,12 +28,12 @@ const getNavigationLinkPages = pMemoize(
           }),
         {
           concurrency: 4,
-        }
+        },
       );
     }
 
     return [];
-  }
+  },
 );
 
 export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
@@ -49,7 +49,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
       recordMap = navigationLinkRecordMaps.reduce(
         (map, navigationLinkRecordMap) =>
           mergeRecordMaps(map, navigationLinkRecordMap),
-        recordMap
+        recordMap,
       );
     }
   }
