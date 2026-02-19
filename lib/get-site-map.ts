@@ -44,7 +44,8 @@ async function getAllPagesImpl(
     (map, pageId: string) => {
       const recordMap = pageMap[pageId];
       if (!recordMap) {
-        throw new Error(`Error loading page "${pageId}"`);
+        console.warn(`Skipping page "${pageId}" - failed to load`);
+        return map;
       }
 
       const canonicalPageId = getCanonicalPageId(pageId, recordMap, {
