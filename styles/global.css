@@ -1,3 +1,21 @@
+@import "tailwindcss";
+
+/* Dark mode via .dark-mode class on <body> (matches useDarkMode hook) */
+@custom-variant dark (&:where(.dark-mode, .dark-mode *));
+
+/* Bridge design tokens as Tailwind theme values */
+@theme {
+  --color-primary: hsl(18 65% 55%);
+  --color-primary-light: hsl(18 70% 65%);
+  --color-foreground: hsl(25 20% 20%);
+  --color-background: hsl(45 30% 96%);
+  --color-muted: hsl(35 20% 85%);
+  --color-muted-foreground: hsl(25 15% 45%);
+  --color-border: hsl(35 20% 85%);
+  --color-card: hsl(40 25% 98%);
+  --color-secondary: hsl(35 30% 90%);
+}
+
 /* ===========================================
    GLOBAL STYLES - Base Styles & CSS Variables
    Adapted from v3 design system
@@ -27,14 +45,15 @@
   --color-ring: 18 65% 55%; /* Focus rings */
 
   /* Legacy support for existing styles */
-  --primary: #D97744;
+  --primary: #d97744;
   --primary-variant: #e89461;
   --bg-color-0: var(--primary);
   --fg-color-5: var(--primary);
 
   /* ===== Typography ===== */
-  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-mono: "Fira Code", "JetBrains Mono", monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
   --notion-font: var(--font-sans);
 
   /* ===== Font Sizes (Type Scale) ===== */
@@ -136,10 +155,14 @@ body {
 
 /* Geometric background pattern */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle, hsl(var(--color-accent) / 0.08) 2px, transparent 2px);
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--color-accent) / 0.08) 2px,
+    transparent 2px
+  );
   background-size: 15px 15px;
   filter: blur(0.5px);
   z-index: -2;
@@ -160,7 +183,11 @@ a {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-primary-glow)));
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-primary)),
+    hsl(var(--color-primary-glow))
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -336,4 +363,3 @@ a {
     transform: translateY(20px) rotate(-5deg);
   }
 }
-

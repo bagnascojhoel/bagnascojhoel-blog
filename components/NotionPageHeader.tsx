@@ -1,17 +1,18 @@
 import * as React from "react";
-
-import * as types from "notion-types";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import cs from "classnames";
-import { useNotionContext } from "react-notion-x";
 
-import { navigationLinks, rootNotionPageId } from "@/lib/config";
+import { navigationLinks } from "@/lib/config";
 
 import styles from "./styles.module.css";
 import { ReturnIcon } from "./ReturnIcon";
-import { useRouter } from "next/router";
 
-export function NotionPageHeader() {
-  const { components, mapPageUrl } = useNotionContext();
+interface NotionPageHeaderProps {
+  mapPageUrl: (pageId: string) => string;
+}
+
+export function NotionPageHeader({ mapPageUrl }: NotionPageHeaderProps) {
   const router = useRouter();
 
   function isRootPath(): boolean {
@@ -20,15 +21,17 @@ export function NotionPageHeader() {
 
   return (
     <header className="notion-header">
-      <div className="notion-nav-header">
+      <nav className="notion-nav-header" aria-label="Site navigation">
         <div className="notion-nav-header-rhs">
           {!isRootPath() && (
-            <div
+            <button
+              type="button"
               className={cs(styles.goBackButton, "button")}
               onClick={() => router.back()}
+              aria-label="Go back"
             >
               <ReturnIcon />
-            </div>
+            </button>
           )}
 
           {navigationLinks
@@ -39,29 +42,31 @@ export function NotionPageHeader() {
 
               if (link.pageId) {
                 return (
-                  <components.PageLink
+                  <Link
                     href={mapPageUrl(link.pageId)}
                     key={index}
                     className={cs(styles.navLink, "breadcrumb", "button")}
                   >
                     {link.title}
-                  </components.PageLink>
+                  </Link>
                 );
               } else {
                 return (
-                  <components.Link
+                  <a
                     href={link.url}
                     key={index}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={cs(styles.navLink, "breadcrumb", "button")}
                   >
                     {link.title}
-                  </components.Link>
+                  </a>
                 );
               }
             })
             .filter(Boolean)}
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
