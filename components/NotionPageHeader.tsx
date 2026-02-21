@@ -6,6 +6,7 @@ import cs from "classnames";
 import { navigationLinks } from "@/lib/config";
 
 import styles from "./styles.module.css";
+import { PageContainer } from "./PageContainer";
 import { ReturnIcon } from "./ReturnIcon";
 
 interface NotionPageHeaderProps {
@@ -20,7 +21,7 @@ export function NotionPageHeader({ mapPageUrl }: NotionPageHeaderProps) {
   }
 
   return (
-    <header className="notion-header">
+    <PageContainer as="header" className="notion-header">
       <nav className="notion-nav-header" aria-label="Site navigation">
         <div className="notion-nav-header-rhs">
           {!isRootPath() && (
@@ -67,6 +68,6 @@ export function NotionPageHeader({ mapPageUrl }: NotionPageHeaderProps) {
             .filter(Boolean)}
         </div>
       </nav>
-    </header>
+    </PageContainer>
   );
 }

@@ -111,14 +111,11 @@
 
 .footer {
   width: 100%;
-  max-width: var(--max-width);
   margin-top: calc(var(--spacing-unit) * 8);
-  padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
+  padding: calc(var(--spacing-unit) * 4) 0;
 }
 
 .footerContainer {
-  max-width: var(--max-width);
-  margin: 0 auto;
   text-align: center;
 }
 

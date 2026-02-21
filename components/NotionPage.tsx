@@ -15,6 +15,7 @@ import { Loading } from "./Loading";
 import { NotionBlockRenderer } from "./NotionBlockRenderer";
 import { NotionPageHeader } from "./NotionPageHeader";
 import { Page404 } from "./Page404";
+import { PageContainer } from "./PageContainer";
 import { PageHead } from "./PageHead";
 
 export const NotionPage: React.FC<types.PageProps> = ({
@@ -114,11 +115,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
           />
         )}
 
-        <article
-          className="mx-auto w-full max-w-[720px] px-4 pb-20 sm:px-6"
-          style={
-            pageId === site.rootNotionPageId ? { maxWidth: "900px" } : undefined
-          }
+        <PageContainer
+          as="article"
+          narrow={isBlogPost || pageId !== site.rootNotionPageId}
+          className="pb-20"
         >
           {/* Page title — shown for blog posts, hidden for root/index page */}
           {isBlogPost && (
@@ -148,7 +148,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
             mapPageUrl={siteMapPageUrl}
             mapImageUrl={mapImageUrl}
           />
-        </article>
+        </PageContainer>
 
         {!isLiteMode && <Footer />}
       </div>
