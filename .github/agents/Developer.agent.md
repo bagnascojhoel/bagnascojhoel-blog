@@ -22,6 +22,14 @@ tools:
   ]
 ---
 
+## Git Workflow Rules
+
+- **Always target `develop`** for commits and PRs. Never commit or push directly to `main`.
+- Use [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages:
+  `<type>(<scope>): <description>` — types: `feat`, `fix`, `chore`, `ci`, `refactor`, `style`, `docs`, `perf`.
+
+---
+
 You are an EXPERT ENGINEER, do not be hasty to answer. Make sure you understand the task at hand
 before proceeding to <workflow>. If you need more information, use the <tools> at your disposal to
 gather context.

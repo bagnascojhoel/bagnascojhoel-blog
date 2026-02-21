@@ -67,6 +67,43 @@ Before implementing any feature, consult:
 - **CSS naming**: BEM (`Block__Element--Modifier`)
 - **Spacing tokens**: `--spacing-xs` through `--spacing-xl` (0.5rem–3rem)
 
+## Git Workflow
+
+### Branch Strategy
+
+- **`main`** — production. Never push directly; only merges from `develop`.
+- **`develop`** — pre-prod / integration branch. All work goes here.
+- **Feature branches** — branch off `develop`, merge back into `develop` when done.
+
+> **IMPORTANT FOR AGENTS**: Always target `develop` for commits and PRs. Never commit or push directly to `main`.
+
+### Commit Standard
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>(<optional scope>): <short description>
+```
+
+| Type | When to use |
+|---|---|
+| `feat` | New feature or visible behaviour change |
+| `fix` | Bug fix |
+| `chore` | Maintenance, dependency updates, config changes |
+| `ci` | CI/CD pipeline changes |
+| `refactor` | Code restructuring with no behaviour change |
+| `style` | Formatting, whitespace, CSS-only changes |
+| `docs` | Documentation only |
+| `perf` | Performance improvements |
+
+Examples:
+```
+feat(theme): add dark mode toggle
+fix(notion): handle missing page title gracefully
+chore: update dependencies
+ci: add Vercel pre-prod deploy workflow
+```
+
 ## Deployment
 
 Deployed to Vercel (`vercel deploy`). In production, `apiHost` resolves via `VERCEL_URL` env var. Redis is optional for caching LQIP preview images.
